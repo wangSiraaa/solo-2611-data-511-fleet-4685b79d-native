@@ -1,0 +1,5 @@
+# 可控HTTP样本
+
+http_fixture.ScenarioSource是外部测试设施，不是待实现ExportJobs：select只由测试驱动切固定场景，不执行任务/队列冻结/取消竞争。pending固定202+Retry-After；complete固定200及正常Patient/Observation清单；partial固定200且error另列；cancelled返回409及OperationOutcome；truncated的manifest仍声明正常Observation摘要，但下载真实截断正文。fixtures内是真实UTF-8 NDJSON与坏JSON字节。所有URL相对ScenarioSource.url。调用close回收HTTP服务。
+
+生产起点export_jobs.py依然只有同步/all.ndjson，候选必须完成真实异步任务和冻结目录生成，不能把select当生产生命周期实现。

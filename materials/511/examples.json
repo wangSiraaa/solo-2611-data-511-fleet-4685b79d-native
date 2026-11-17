@@ -1,0 +1,1 @@
+{"cohorts": [["p1"], ["p2"]], "timing": ["start", "poll-pending", "worker-finish", "poll-success"], "variants": ["cancel-before-worker", "bad-observation-file", "manifest-with-error"]}
